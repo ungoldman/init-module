@@ -36,6 +36,16 @@ function niceName (n) {
   return n.replace(/^node-|[.-]js$/g, '').toLowerCase()
 }
 
+function isTruthy (str) {
+  var s = str.toLowerCase()
+  if (s === "true" ||
+      s === "yes" ||
+      s === "y") {
+    return true
+  }
+  return false
+}
+
 function readDeps (test) { return function (cb) {
   fs.readdir('node_modules', function (err, dir) {
     if (err) return cb()
@@ -287,7 +297,7 @@ exports.directories = null
 
 var isPrivate = package.private || null
 
-exports.private = yes ? null : prompt('private', isPrivate, function (bool) {
-  if (bool === 'true') return true
+exports.private = yes ? isPrivate : prompt('private', isPrivate, function (bool) {
+  if (isTruthy(bool)) return true
   else return null
 })
