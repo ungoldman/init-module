@@ -250,9 +250,9 @@ exports.repository = function (cb) {
 
 // keywords
 
-var keywords = package.keywords || ''
+var keywords = package.keywords || []
 
-exports.keywords = yes ? '' : prompt('keywords', keywords || '', function (s) {
+exports.keywords = yes ? keywords : prompt('keywords', keywords.join(', '), function (s) {
   if (!s) return undefined
   if (Array.isArray(s)) s = s.join(' ')
   if (typeof s !== 'string') return s
@@ -298,7 +298,7 @@ exports.directories = null
 
 var isPrivate = package.private || null
 
-exports.private = yes ? isPrivate : prompt('private', isPrivate, function (bool) {
+exports.private = yes ? isPrivate : prompt('private', isPrivate || 'false', function (bool) {
   if (isTruthy(bool)) return true
   else return null
 })
