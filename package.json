@@ -1,0 +1,49 @@
+{
+  "name": "init-module",
+  "description": "Add some sugar to the npm init command.",
+  "version": "1.0.0-alpha",
+  "author": "",
+  "bin": {
+    "init-module": "./bin/cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/ngoldman/init-module/issues"
+  },
+  "dependencies": {
+    "cliclopts": "^1.1.1",
+    "glob": "^7.0.0",
+    "minimist": "^1.2.0",
+    "npm-package-arg": "^4.1.0",
+    "semver": "^5.1.0",
+    "validate-npm-package-license": "^3.0.1",
+    "validate-npm-package-name": "^2.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^1.10.3",
+    "eslint-config-unstyled": "^1.1.0",
+    "tap-spec": "^4.0.2",
+    "tape": "^4.0.0"
+  },
+  "homepage": "https://github.com/ngoldman/init-module",
+  "keywords": [
+    "helper",
+    "init",
+    "package",
+    "package.json",
+    "prompt",
+    "start",
+    "wizard",
+    "wizerd"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "npm run lint && npm run tests",
+    "tests": "tape test/*.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngoldman/init-module.git"
+  }
+}
