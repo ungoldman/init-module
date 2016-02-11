@@ -3,9 +3,15 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-## unreleased
+## 1.0.0-alpha.2
 * fix private
 * add truthiness detector
+* add cli path option test
+* fix author
+* improve docs
+* fix keywords
+* add default private prompt
+* remove npm config dot notation
 
 ## 1.0.0-alpha.1
 * fix some readme links
