@@ -1,7 +1,7 @@
 {
   "name": "init-module",
   "description": "Add some sugar to the npm init command.",
-  "version": "1.0.0-alpha",
+  "version": "1.0.0-alpha.1",
   "author": "",
   "bin": {
     "init-module": "./bin/cli.js"

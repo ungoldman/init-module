@@ -4,14 +4,11 @@
 
 [![npm][npm-image]][npm-url]
 [![travis][travis-image]][travis-url]
-[![standard][standard-image]][standard-url]
 
-[npm-image]: https://img.shields.io/npm/v/module-init.svg?style=flat-square
-[npm-url]: https://www.npmjs.com/package/module-init
-[travis-image]: https://img.shields.io/travis/ngoldman/module-init.svg?style=flat-square
-[travis-url]: https://travis-ci.org/ngoldman/module-init
-[standard-image]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
-[standard-url]: http://standardjs.com/
+[npm-image]: https://img.shields.io/npm/v/init-module.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/init-module
+[travis-image]: https://img.shields.io/travis/ngoldman/init-module.svg?style=flat-square
+[travis-url]: https://travis-ci.org/ngoldman/init-module
 
 A successor to [`module-init`](https://github.com/ngoldman/module-init).
 
@@ -32,7 +29,7 @@ npm set init-module $(init-module --path)
 npm init
 ```
 
-Protip: take advantage of [`.npmconfig`](https://docs.npmjs.com/misc/config#init-module) to set config variables for more handy defaults. This module takes advantage of [npm set init-module](https://docs.npmjs.com/misc/config#init-module).
+Protip: this module uses [npm config set init-module](https://docs.npmjs.com/misc/config#init-module) to override `npm init` defaults. Take advantage of [`npm config`](https://docs.npmjs.com/misc/config) to set even more config variables for more handy defaults.
 
 ## Contributing
 
