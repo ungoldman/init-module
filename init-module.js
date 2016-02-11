@@ -46,6 +46,11 @@ function isTruthy (str) {
   return false
 }
 
+function spaceMeansBlank (input) {
+  if (input === " ") return null
+  return input
+}
+
 function readDeps (test) { return function (cb) {
   fs.readdir('node_modules', function (err, dir) {
     if (err) return cb()
@@ -101,7 +106,6 @@ exports.name =  yes ? name :
 // version
 
 var version = package.version ||
-  config.get('init.version') ||
   config.get('init-version') ||
   '1.0.0'
 
@@ -257,28 +261,22 @@ exports.keywords = yes ? '' : prompt('keywords', keywords || '', function (s) {
 
 // author
 
-var author = package.author || null
+var author = package.author || {
+  "name" : config.get('init-author-name'),
+  "email" : config.get('init-author-email'),
+  "url" : config.get('init-author-url')
+}
 
-exports.author = author ?
-  prompt('author', author) :
-  config.get('init.author.name') ||
-  config.get('init-author-name') ?
-    {
-      "name" : prompt('author name', config.get('init.author.name') ||
-               config.get('init-author-name')),
-      "email" : prompt('author email', config.get('init.author.email') ||
-                config.get('init-author-email')),
-      "url" : prompt('author url', config.get('init.author.url') ||
-              config.get('init-author-url'))
-    } :
-    yes ?
-    author || '' :
-    prompt('author')
+exports.author = yes ? author :
+  {
+    "name" : prompt('author name', author.name, spaceMeansBlank),
+    "email" : prompt('author email', author.email, spaceMeansBlank),
+    "url" : prompt('author url', author.url, spaceMeansBlank)
+  }
 
 // license
 
 var license = package.license ||
-  config.get('init.license') ||
   config.get('init-license') ||
   'ISC'
 
@@ -291,6 +289,9 @@ exports.license = yes ? license : prompt('license', license, function (data) {
   return err
 })
 
+// directories
+
+// ignore directories since it doesn't get used by anything
 exports.directories = null
 
 // private
