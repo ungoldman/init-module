@@ -1,8 +1,12 @@
 var test = require('tape')
-var initModule = require.resolve('../')
+var exec = require('child_process').exec
+var correctPath = require.resolve('../init-module.js')
 
-test('Example Test', function (t) {
-  t.plan(1)
-  console.log(initModule)
-  t.error('No tests defined.')
+test('cli: path option', function (t) {
+  exec('./bin/cli.js --path', function (err, stdout, stderr) {
+    t.error(err, 'no error')
+    t.error(stderr, 'no stderr')
+    t.equals(stdout.replace('\n',''), correctPath, 'returned correct path')
+    t.end()
+  })
 })
