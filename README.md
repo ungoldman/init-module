@@ -109,6 +109,7 @@ These defaults require `init-module` in order to be available in `npm init`.
 
 - default & editable scripts (test, lint, other)
 - default & editable dev dependencies (e.g. tape, standard)
+- Run extra commands with a temporary postinstall script. Hacky and potentially too iffy.
 
 ## Example
 
@@ -128,10 +129,6 @@ These were all set with `npm set`, which is just a shortcut for `npm config set`
 ## Contributing
 
 Contributions welcome! Please read the [contributing guidelines](CONTRIBUTING.md) first.
-
-## Ideas
-
-- Run extra commands with a temporary postinstall script. Hacky and potentially iffy.
 
 ## License
 
