@@ -110,6 +110,21 @@ These defaults require `init-module` in order to be available in `npm init`.
 - default & editable scripts (test, lint, other)
 - default & editable dev dependencies (e.g. tape, standard)
 
+## Example
+
+Here's an example of the `init-*` contents of my global `.npmrc` file.
+
+```
+init-module=/Users/ng/dev/github/init-module/init-module.js
+init-author-name=Nate Goldman
+init-author-email=nate@ngoldman.me
+init-author-url=http://ngoldman.me
+init-version=1.0.0-alpha
+init-license=ISC
+```
+
+These were all set with `npm set`, which is just a shortcut for `npm config set`. You can also edit your `.npmrc` manually if you prefer.
+
 ## Contributing
 
 Contributions welcome! Please read the [contributing guidelines](CONTRIBUTING.md) first.
