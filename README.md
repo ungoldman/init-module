@@ -24,7 +24,7 @@ npm install init-module -g
 
 ## Usage
 
-`npm` allows you to configure an [init module](https://docs.npmjs.com/misc/config#init-module) that will be loaded by the npm init command. This is how `init-module` is intended to be used.
+`npm` allows you to configure an [`init module`](https://docs.npmjs.com/misc/config#init-module) that will be loaded by the `npm init` command to override the default prompts. The `init-module` program is intended to be used in this manner.
 
 ```
 npm set init-module $(init-module --path)
@@ -36,7 +36,7 @@ Once you've set the above config property, `init-module` will simply extend the 
 npm init
 ```
 
-`npm init` allows you to configure a few things and works from a few defaults. This module is meant to take it a bit further, adding more defaults to `npm config` that will autopopulate when you run `npm init -y`, and allowing you to use `npm init` as a `package.json` editor at any point.
+`npm init` allows you to configure a few things and works from a few defaults. `init-module` is meant to take it a bit further, making all `package.json` properties editable, adding more defaults to `npm config` that will autopopulate when you run `npm init -y`, and allowing you to use `npm init` as a `package.json` editor at any point.
 
 ### Config for `npm init`
 
