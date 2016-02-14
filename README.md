@@ -217,7 +217,7 @@ private: (true)
 
 ### The "yes" option (force)
 
-Running `npm init -y` in an empty directory yields the following `package.json`:
+Running `npm init -y` in an empty directory with the example configuration above yields the following `package.json`:
 
 ```json
 {
