@@ -41,11 +41,11 @@ npm init
 
 `npm init` allows you to configure a few things and works from a few defaults. `init-module` is meant to take it a bit further, making all `package.json` properties editable, adding more defaults to `npm config` that will autopopulate when you run `npm init -y`, and allowing you to use `npm init` as a `package.json` editor at any point.
 
-### Config for `npm init`
+### Configuration (`npm init`)
 
 These defaults are already available to `npm init` without `init-module`.
 
-#### Author Name
+#### Author Name: `init-author-name`
 
 - Default: ""
 - Type: String
@@ -56,7 +56,7 @@ The value `npm init` should use by default for the package author's name.
 npm set init-author-name="Your Name"
 ```
 
-#### Author Email
+#### Author Email: `init-author-email`
 
 - Default: ""
 - Type: String
@@ -67,7 +67,7 @@ The value `npm init` should use by default for the package author's email.
 npm set init-author-name="your@email.com"
 ```
 
-#### Author URL
+#### Author URL: `init-author-url`
 
 - Default: ""
 - Type: String
@@ -78,7 +78,7 @@ The value `npm init` should use by default for the package author's homepage.
 npm set init-author-url="http://yoursite.com"
 ```
 
-#### License
+#### License `init-license`
 
 - Default: "ISC"
 - Type: String
@@ -91,7 +91,7 @@ npm set init-license="BSD-2-Clause"
 
 The license name must be a valid SPDX license expression. See https://spdx.org/licenses for more info.
 
-#### Version
+#### Version `init-version`
 
 - Default: "1.0.0"
 - Type: semver
@@ -102,15 +102,25 @@ The value that `npm init` should use by default for the package version number, 
 npm set init-version="1.0.0"
 ```
 
-### Config for `init-module`
+### Configuration (`init-module`)
 
 These defaults require `init-module` in order to be available in `npm init`.
 
-*Coming soon...*
+#### Test Script: `init-scripts-test`
+
+- Default: 'echo "Error: no test specified" && exit 1'
+- Type: String
+
+The command to use when running `npm test`.
+
+```
+npm set init-scripts-test="standard && tape test/*.js | tap-spec"
+```
+
+*More coming soon...*
 
 #### Ideas
 
-- default & editable scripts (test, lint, other)
 - default & editable dev dependencies (e.g. tape, standard)
 - Run extra commands with a temporary postinstall script. Hacky and potentially too iffy.
 
@@ -119,15 +129,109 @@ These defaults require `init-module` in order to be available in `npm init`.
 Here's an example of the `init-*` contents of my global `.npmrc` file.
 
 ```
-init-module=/Users/ng/dev/github/init-module/init-module.js
-init-author-name=Nate Goldman
-init-author-email=nate@ngoldman.me
-init-author-url=http://ngoldman.me
-init-version=1.0.0-alpha
-init-license=ISC
+init-author-email = "nate@ngoldman.me"
+init-author-name = "Nate Goldman"
+init-author-url = "http://ngoldman.me/"
+init-license = "ISC"
+init-module = "/Users/ng/dev/github/init-module/init-module.js"
+init-scripts-test = "standard && tape test/*.js | tap-spec"
+init-version = "1.0.0-alpha"
+init-dev-dependencies
 ```
 
-These were all set with `npm set`, which is just a shortcut for `npm config set`. You can also edit your `.npmrc` manually if you prefer.
+All configuration above can be set with `npm set`, which is just a shortcut for `npm config set`. You can also edit your `.npmrc` manually if you prefer.
+
+Running `npm init` in an empty directory with the above configuration, I get the following:
+
+```
+~/my-module $ npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg> --save` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+name: (my-module)
+version: (1.0.0-alpha)
+description: A fine module indeed.
+entry point: (index.js)
+test command: (standard && tape test/*.js | tap-spec)
+git repository: https://github.com/ngoldman/my-module.git
+keywords: my, module
+author name: (Nate Goldman)
+author email: (nate@ngoldman.me)
+author url: (http://ngoldman.me/)
+license: (ISC)
+private: (false) true
+About to write to /Users/ng/dev/github/init-module/my-module/package.json:
+
+{
+  "name": "my-module",
+  "version": "1.0.0-alpha",
+  "description": "A fine module indeed.",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && tape test/*.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngoldman/my-module.git"
+  },
+  "keywords": [
+    "my",
+    "module"
+  ],
+  "author": "Nate Goldman <nate@ngoldman.me> (http://ngoldman.me/)",
+  "license": "ISC",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/ngoldman/my-module/issues"
+  },
+  "homepage": "https://github.com/ngoldman/my-module#readme"
+}
+
+
+Is this ok? (yes)
+```
+
+Note that with `init-module`, running `npm init` again will allow you to edit all of the above properties, unlike the stock `npm init` behavior.
+
+```
+name: (my-module)
+version: (1.0.0-alpha)
+description: (A fine module indeed.)
+entry point: (index.js)
+test command: (standard && tape test/*.js | tap-spec)
+git repository: (git+https://github.com/ngoldman/my-module.git)
+keywords: (my, module)
+author name: (Nate Goldman)
+author email: (nate@ngoldman.me)
+author url: (http://ngoldman.me/)
+license: (ISC)
+private: (true)
+```
+
+### The "yes" option (force)
+
+Running `npm init -y` in an empty directory yields the following `package.json`:
+
+```json
+{
+  "name": "my-module",
+  "version": "1.0.0-alpha",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && tape test/*.js | tap-spec"
+  },
+  "author": "Nate Goldman <nate@ngoldman.me> (http://ngoldman.me/)",
+  "license": "ISC"
+}
+```
 
 ## Contributing
 

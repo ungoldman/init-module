@@ -190,32 +190,9 @@ exports.scripts = function (cb) {
 function setupScripts (deps, cb) {
   var scripts = package.scripts || {}
   var notest = 'echo "Error: no test specified" && exit 1'
-  var commands = {
-    'tap':'tap test/*.js',
-    'expresso':'expresso test',
-    'mocha':'mocha'
-  }
-  var ps = 'test command'
-  var command
+  var testCmd = scripts.test || config.get('init-scripts-test') || notest
 
-  // check to see what framework is in use, if any
-  function tx (test) { return test || notest }
-
-  var testCmd = scripts.test || null
-
-  Object.keys(commands).forEach(function (k) {
-    if (deps.indexOf(k) !== -1) command = commands[k]
-  })
-
-  if (yes) {
-    scripts.test = scripts.test || command || notest
-  } else {
-    scripts.test = testCmd ?
-      prompt(ps, testCmd, tx) :
-      command ?
-        prompt(ps, command, tx) :
-        prompt(ps, tx)
-  }
+  scripts.test = yes ? testCmd : prompt('test command', testCmd)
 
   return cb(null, scripts)
 }
@@ -225,6 +202,8 @@ function setupScripts (deps, cb) {
 var repo = package.repository
 
 exports.repository = function (cb) {
+  if (repo) return cb(null, yes ? repo : prompt('git repository', repo.url || repo))
+
   fs.readFile('.git/config', 'utf8', function (err, gitconfig) {
     if (err || !gitconfig) {
       return cb(null, yes ? '' : prompt('git repository'))
@@ -252,12 +231,16 @@ exports.repository = function (cb) {
 
 var keywords = package.keywords || []
 
-exports.keywords = yes ? keywords : prompt('keywords', keywords.join(', '), function (s) {
-  if (!s) return undefined
-  if (Array.isArray(s)) s = s.join(' ')
-  if (typeof s !== 'string') return s
-  return s.split(/[\s,]+/)
-})
+
+
+exports.keywords = yes ?
+  keywords.length ? keywords : null :
+  prompt('keywords', keywords.join(', '), function (s) {
+    if (!s) return undefined
+    if (Array.isArray(s)) s = s.join(' ')
+    if (typeof s !== 'string') return s
+    return s.split(/[\s,]+/)
+  })
 
 // author
 
@@ -298,7 +281,7 @@ exports.directories = null
 
 var isPrivate = package.private || null
 
-exports.private = yes ? isPrivate : prompt('private', isPrivate || 'false', function (bool) {
+exports.private = yes ? isPrivate : prompt('private', isPrivate ? 'true' : 'false', function (bool) {
   if (isTruthy(bool)) return true
   else return null
 })
