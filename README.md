@@ -133,7 +133,7 @@ init-scripts-test = "standard && tape test/*.js | tap-spec"
 init-version = "1.0.0-alpha"
 ```
 
-All configuration above can be set with `npm set`, which is just a shortcut for `npm config set`. You can also edit your `.npmrc` manually if you prefer.
+All configuration above can be set with `npm set`, which is just a shortcut for `npm config set`. You can also edit your `.npmrc` manually if you prefer (`npm config edit` will open your global `.npmrc` file with your default editor).
 
 Running `npm init` in an empty directory with the above configuration, I get the following:
 
