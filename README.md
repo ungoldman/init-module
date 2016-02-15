@@ -119,11 +119,6 @@ npm set init-scripts-test="standard && tape test/*.js | tap-spec"
 
 *More coming soon...*
 
-#### Ideas
-
-- default & editable dev dependencies (e.g. tape, standard)
-- Run extra commands with a temporary postinstall script. Hacky and potentially too iffy.
-
 ## Example
 
 Here's an example of the `init-*` contents of my global `.npmrc` file.
@@ -136,7 +131,6 @@ init-license = "ISC"
 init-module = "/Users/ng/dev/github/init-module/init-module.js"
 init-scripts-test = "standard && tape test/*.js | tap-spec"
 init-version = "1.0.0-alpha"
-init-dev-dependencies
 ```
 
 All configuration above can be set with `npm set`, which is just a shortcut for `npm config set`. You can also edit your `.npmrc` manually if you prefer.
