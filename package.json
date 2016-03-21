@@ -2,12 +2,12 @@
   "name": "init-module",
   "description": "Add some sugar to the npm init command.",
   "version": "1.0.0-alpha.3",
-  "author": "Nate Goldman <nate@ngoldman.me> (http://ngoldman.me/)",
+  "author": "Nate Goldman <ungoldman@gmail.com> (http://ungoldman.com/)",
   "bin": {
     "init-module": "./bin/cli.js"
   },
   "bugs": {
-    "url": "https://github.com/ngoldman/init-module/issues"
+    "url": "https://github.com/ungoldman/init-module/issues"
   },
   "dependencies": {
     "cliclopts": "^1.1.1",
@@ -24,7 +24,7 @@
     "tap-spec": "^4.0.2",
     "tape": "^4.0.0"
   },
-  "homepage": "https://github.com/ngoldman/init-module",
+  "homepage": "https://github.com/ungoldman/init-module",
   "keywords": [
     "helper",
     "init",
@@ -39,7 +39,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngoldman/init-module.git"
+    "url": "git+https://github.com/ungoldman/init-module.git"
   },
   "scripts": {
     "lint": "eslint .",

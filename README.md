@@ -8,16 +8,16 @@
 
 [npm-image]: https://img.shields.io/npm/v/init-module.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/init-module
-[travis-image]: https://img.shields.io/travis/ngoldman/init-module.svg?style=flat-square
-[travis-url]: https://travis-ci.org/ngoldman/init-module
+[travis-image]: https://img.shields.io/travis/ungoldman/init-module.svg?style=flat-square
+[travis-url]: https://travis-ci.org/ungoldman/init-module
 [style-image]: https://img.shields.io/badge/code%20style-unstyled-brightgreen.svg?style=flat-square
 [style-url]: https://github.com/mapbox/eslint-config-unstyled
 
-A successor to [`module-init`](https://github.com/ngoldman/module-init).
+A successor to [`module-init`](https://github.com/ungoldman/module-init).
 
 **work in progress**
 
-This is still very experimental! Use at your own risk. Feedback and pull requests welcome.
+This is beta quality! Feedback and pull requests welcome.
 
 ## Install
 
@@ -124,9 +124,9 @@ npm set init-scripts-test="standard && tape test/*.js | tap-spec"
 Here's an example of the `init-*` contents of my global `.npmrc` file.
 
 ```
-init-author-email = "nate@ngoldman.me"
+init-author-email = "ungoldman@gmail.com"
 init-author-name = "Nate Goldman"
-init-author-url = "http://ngoldman.me/"
+init-author-url = "http://ungoldman.com/"
 init-license = "ISC"
 init-module = "/Users/ng/dev/github/init-module/init-module.js"
 init-scripts-test = "standard && tape test/*.js | tap-spec"
@@ -154,11 +154,11 @@ version: (1.0.0-alpha)
 description: A fine module indeed.
 entry point: (index.js)
 test command: (standard && tape test/*.js | tap-spec)
-git repository: https://github.com/ngoldman/my-module.git
+git repository: https://github.com/ungoldman/my-module.git
 keywords: my, module
 author name: (Nate Goldman)
-author email: (nate@ngoldman.me)
-author url: (http://ngoldman.me/)
+author email: (ungoldman@gmail.com)
+author url: (http://ungoldman.com)
 license: (ISC)
 private: (false) true
 About to write to /Users/ng/dev/github/init-module/my-module/package.json:
@@ -173,19 +173,19 @@ About to write to /Users/ng/dev/github/init-module/my-module/package.json:
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngoldman/my-module.git"
+    "url": "git+https://github.com/ungoldman/my-module.git"
   },
   "keywords": [
     "my",
     "module"
   ],
-  "author": "Nate Goldman <nate@ngoldman.me> (http://ngoldman.me/)",
+  "author": "Nate Goldman <ungoldman@gmail.com> (http://ungoldman.com)",
   "license": "ISC",
   "private": true,
   "bugs": {
-    "url": "https://github.com/ngoldman/my-module/issues"
+    "url": "https://github.com/ungoldman/my-module/issues"
   },
-  "homepage": "https://github.com/ngoldman/my-module#readme"
+  "homepage": "https://github.com/ungoldman/my-module#readme"
 }
 
 
@@ -200,11 +200,11 @@ version: (1.0.0-alpha)
 description: (A fine module indeed.)
 entry point: (index.js)
 test command: (standard && tape test/*.js | tap-spec)
-git repository: (git+https://github.com/ngoldman/my-module.git)
+git repository: (git+https://github.com/ungoldman/my-module.git)
 keywords: (my, module)
 author name: (Nate Goldman)
-author email: (nate@ngoldman.me)
-author url: (http://ngoldman.me/)
+author email: (ungoldman@gmail.com)
+author url: (http://ungoldman.com)
 license: (ISC)
 private: (true)
 ```
@@ -222,7 +222,7 @@ Running `npm init -y` in an empty directory with the example configuration above
   "scripts": {
     "test": "standard && tape test/*.js | tap-spec"
   },
-  "author": "Nate Goldman <nate@ngoldman.me> (http://ngoldman.me/)",
+  "author": "Nate Goldman <ungoldman@gmail.com> (http://ungoldman.com)",
   "license": "ISC"
 }
 ```
