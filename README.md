@@ -13,7 +13,7 @@
 [style-image]: https://img.shields.io/badge/code%20style-unstyled-brightgreen.svg?style=flat-square
 [style-url]: https://github.com/mapbox/eslint-config-unstyled
 
-A successor to [`module-init`](https://github.com/ungoldman/module-init).
+`npm init` allows you to configure a few things and works from a few defaults. `init-module` is meant to take it a bit further, making all `package.json` properties editable, adding more defaults to `npm config` that will autopopulate when you run `npm init -y`, and allowing you to use `npm init` as a `package.json` editor at any point.
 
 **work in progress**
 
@@ -38,8 +38,6 @@ Once you've set the above config property, `init-module` will simply extend the 
 ```
 npm init
 ```
-
-`npm init` allows you to configure a few things and works from a few defaults. `init-module` is meant to take it a bit further, making all `package.json` properties editable, adding more defaults to `npm config` that will autopopulate when you run `npm init -y`, and allowing you to use `npm init` as a `package.json` editor at any point.
 
 ### Configuration (`npm init`)
 
@@ -230,6 +228,11 @@ Running `npm init -y` in an empty directory with the example configuration above
 ## Contributing
 
 Contributions welcome! Please read the [contributing guidelines](CONTRIBUTING.md) first.
+
+## See also
+
+- [`module-init`](https://github.com/ungoldman/module-init)
+- [`maintenance-modules`](https://github.com/maxogden/maintenance-modules)
 
 ## License
 
