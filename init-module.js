@@ -190,9 +190,11 @@ exports.scripts = function (cb) {
 function setupScripts (deps, cb) {
   var scripts = package.scripts || {}
   var notest = 'echo "Error: no test specified" && exit 1'
+  var startCmd = scripts.start || config.get('init-scripts-start') || null
   var testCmd = scripts.test || config.get('init-scripts-test') || notest
 
-  scripts.test = yes ? testCmd : prompt('test command', testCmd)
+  scripts.start = yes ? startCmd : prompt('start command', startCmd, spaceMeansBlank)
+  scripts.test = yes ? testCmd : prompt('test command', testCmd, spaceMeansBlank)
 
   return cb(null, scripts)
 }
