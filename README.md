@@ -13,16 +13,12 @@
 [style-image]: https://img.shields.io/badge/code%20style-unstyled-brightgreen.svg?style=flat-square
 [style-url]: https://github.com/mapbox/eslint-config-unstyled
 
-`npm init` allows you to configure a few things and works from a few defaults. `init-module` is meant to take it a bit further, making all `package.json` properties editable, adding more defaults to `npm config` that will autopopulate when you run `npm init -y`, and allowing you to use `npm init` as a `package.json` editor at any point.
-
-**work in progress**
-
-This is beta quality! Feedback and pull requests welcome.
+`npm init` allows you to configure a few things and works from a few defaults. `init-module` is meant to take it a bit further, making all `package.json` properties editable, adding more defaults to `npm config` that will autopopulate when you run `npm init -y`, and allowing you to use `npm init` as a `package.json` editor.
 
 ## Install
 
 ```
-npm install init-module -g
+npm i -g init-module
 ```
 
 ## Usage
@@ -104,6 +100,17 @@ npm set init-version="1.0.0"
 
 These defaults require `init-module` in order to be available in `npm init`.
 
+#### Test Script: `init-scripts-start`
+
+- Default: null
+- Type: String
+
+The command to use when running `npm start`.
+
+```
+npm set init-scripts-start="node ."
+```
+
 #### Test Script: `init-scripts-test`
 
 - Default: 'echo "Error: no test specified" && exit 1'
@@ -112,10 +119,8 @@ These defaults require `init-module` in order to be available in `npm init`.
 The command to use when running `npm test`.
 
 ```
-npm set init-scripts-test="standard && tape test/*.js | tap-spec"
+npm set init-scripts-test="standard"
 ```
-
-*More coming soon...*
 
 ## Example
 
@@ -127,8 +132,9 @@ init-author-name = "Nate Goldman"
 init-author-url = "http://ungoldman.com/"
 init-license = "ISC"
 init-module = "/Users/ng/dev/github/init-module/init-module.js"
-init-scripts-test = "standard && tape test/*.js | tap-spec"
-init-version = "1.0.0-alpha"
+init-scripts-start = "node ."
+init-scripts-test = "standard"
+init-version = "1.0.0"
 ```
 
 All configuration above can be set with `npm set`, which is just a shortcut for `npm config set`. You can also edit your `.npmrc` manually if you prefer (`npm config edit` will open your global `.npmrc` file with your default editor).
@@ -151,7 +157,8 @@ name: (my-module)
 version: (1.0.0-alpha)
 description: A fine module indeed.
 entry point: (index.js)
-test command: (standard && tape test/*.js | tap-spec)
+test command: (standard)
+start command: (node .)
 git repository: https://github.com/ungoldman/my-module.git
 keywords: my, module
 author name: (Nate Goldman)
@@ -167,7 +174,8 @@ About to write to /Users/ng/dev/github/init-module/my-module/package.json:
   "description": "A fine module indeed.",
   "main": "index.js",
   "scripts": {
-    "test": "standard && tape test/*.js | tap-spec"
+    "start": "node .",
+    "test": "standard"
   },
   "repository": {
     "type": "git",
