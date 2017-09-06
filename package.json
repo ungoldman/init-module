@@ -1,7 +1,7 @@
 {
   "name": "init-module",
   "description": "Add some sugar to the npm init command.",
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "author": "Nate Goldman <ungoldman@gmail.com> (http://ungoldman.com/)",
   "bin": {
     "init-module": "./bin/cli.js"
@@ -42,8 +42,8 @@
     "url": "git+https://github.com/ungoldman/init-module.git"
   },
   "scripts": {
-    "lint": "eslint .",
-    "test": "npm run lint && npm run tests",
-    "tests": "tape test/*.js | tap-spec"
+    "test": "npm run test:lint && npm run test:unit",
+    "test:lint": "eslint .",
+    "test:unit": "tape test/*.js | tap-spec"
   }
 }
