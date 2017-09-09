@@ -60,7 +60,7 @@ npm set init-author-name="Your Name"
 The value `npm init` should use by default for the package author's email.
 
 ```
-npm set init-author-name="your@email.com"
+npm set init-author-email="your@email.com"
 ```
 
 #### Author URL: `init-author-url`
@@ -102,7 +102,7 @@ npm set init-version="1.0.0"
 
 These defaults require `init-module` in order to be available in `npm init`.
 
-#### Test Script: `init-scripts-start`
+#### Start Script: `init-scripts-start`
 
 - Default: null
 - Type: String
