@@ -5,6 +5,7 @@
 [![npm][npm-image]][npm-url]
 [![travis][travis-image]][travis-url]
 [![style][style-image]][style-url]
+[![downloads][downloads-image]][npm-url]
 
 [npm-image]: https://img.shields.io/npm/v/init-module.svg?style=flat-square
 [npm-url]: https://www.npmjs.com/package/init-module
@@ -12,6 +13,7 @@
 [travis-url]: https://travis-ci.org/ungoldman/init-module
 [style-image]: https://img.shields.io/badge/code%20style-unstyled-brightgreen.svg?style=flat-square
 [style-url]: https://github.com/mapbox/eslint-config-unstyled
+[downloads-image]: https://img.shields.io/npm/dm/init-module.svg?style=flat-square
 
 `npm init` allows you to configure a few things and works from a few defaults. `init-module` is meant to take it a bit further, making all `package.json` properties editable, adding more defaults to `npm config` that will autopopulate when you run `npm init -y`, and allowing you to use `npm init` as a `package.json` editor.
 
