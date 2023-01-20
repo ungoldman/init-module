@@ -1,3 +1,11 @@
+# NO LONGER MAINTAINED
+
+This is a public archive. Use at your own risk.
+
+🖖
+
+---
+
 # init-module
 
 > Add some sugar to the npm init command.
